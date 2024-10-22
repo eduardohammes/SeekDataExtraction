@@ -10,3 +10,5 @@ isort
 flake8
 bandit
 invoke
+interrogate
+pre-commit

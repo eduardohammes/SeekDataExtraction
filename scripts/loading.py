@@ -1,4 +1,3 @@
-import logging
 from typing import List
 
 from airflow.decorators import task
@@ -6,9 +5,10 @@ from airflow.hooks.postgres_hook import PostgresHook
 
 from scripts.models import DB_CONFIG, LOGGER
 
+
 @task
 def load_data(all_jobs: List[dict]):
-    pg_hook = PostgresHook(postgres_conn_id=DB_CONFIG['connection_id'])
+    pg_hook = PostgresHook(postgres_conn_id=DB_CONFIG["connection_id"])
 
     create_table_sql = """
     CREATE TABLE IF NOT EXISTS job_data (

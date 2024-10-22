@@ -1,26 +1,34 @@
 from invoke import task
 
+
 @task
 def lint(c):
-    """Run code linters and formatters."""
-    c.run('pre-commit run --all-files')
+    """Executa os linters e formatadores."""
+    c.run("pre-commit run --all-files")
+
 
 @task
 def test(c):
-    """Run unit tests."""
-    c.run('pytest tests/')
+    """Executa os testes unitários."""
+    c.run("pytest tests/")
+
+
+@task
+def install_hooks(c):
+    """Instala os hooks do pre-commit."""
+    c.run("pre-commit install")
+
 
 @task
 def start(c):
-    """Start the Docker containers."""
-    c.run('docker-compose up -d')
+    """Inicia os contêineres Docker."""
+    c.run("docker-compose up -d")
+
 
 @task
 def stop(c):
-    """Stop the Docker containers."""
-    c.run('docker-compose down')
+    """Para os contêineres Docker."""
+    c.run("docker-compose down")
 
-@task
-def build_docs(c):
-    """Build documentation (if using a documentation tool)."""
-    c.run('mkdocs build')
+
+# Outras tarefas existentes...
