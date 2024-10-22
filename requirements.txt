@@ -1,0 +1,11 @@
+apache-airflow==2.2.5
+requests
+PyYAML
+psycopg2-binary
+pydantic
+pytest
+pre-commit
+black
+isort
+flake8
+bandit

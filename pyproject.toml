@@ -1,0 +1,10 @@
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\\.pyi?$'
+
+[tool.isort]
+profile = "black"
+known_first_party = ["scripts", "tests", "dags"]
+known_third_party = ["airflow", "requests", "yaml", "pydantic"]
+line_length = 88

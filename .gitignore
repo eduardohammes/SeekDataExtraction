@@ -1,0 +1,39 @@
+# Airflow Database
+airflow.db
+
+# General
+.DS_Store
+.DS_Store?
+
+# Python-specific
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.coverage/
+.tox/
+.ipynb_checkpoints/
+
+# Virtual environment
+.venv/
+venv/
+
+# Logs
+logs/
+*.log
+
+# Configuration
+config/
+.env
+
+# Build artifacts
+dist/
+build/
+
+# Test results
+test-results/
+
+# IDE-specific
+.idea/
+.vscode/
