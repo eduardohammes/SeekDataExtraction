@@ -31,5 +31,5 @@ This project is an Airflow ETL pipeline that extracts job listings from an API, 
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/yourusername/job_data_etl_project.git
-   cd job_data_etl_project
+   git clone https://github.com/eduardohammes/SeekDataExtraction.git
+   cd SeekDataExtraction
