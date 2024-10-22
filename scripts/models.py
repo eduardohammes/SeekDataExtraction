@@ -1,38 +1,37 @@
+# scripts/models.py
 import logging
+from typing import Optional
 
 import yaml
 
 # Load configuration
-with open("/opt/airflow/config/config.yaml", "r") as f:
+with open('/opt/airflow/config/config.yaml', 'r') as f:
     config = yaml.safe_load(f)
 
-API_CONFIG = config["api"]
-DB_CONFIG = config["database"]
-LOGGING_CONFIG = config["logging"]
+API_CONFIG = config['api']
+DB_CONFIG = config['database']
+LOGGING_CONFIG = config['logging']
 
 # Set up logging
 logging.basicConfig(
-    level=LOGGING_CONFIG["level"],
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    level=LOGGING_CONFIG['level'],
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
 )
+
 LOGGER = logging.getLogger(__name__)
 
 
 def update_metadata(job_data, cookies):
     return {
-        "userqueryid": job_data.get("userQueryId"),
+        "userqueryid": job_data.get('userQueryId'),
         "userid": cookies.get("JobseekerVisitorId"),
         "usersessionid": cookies.get("JobseekerSessionId"),
         "eventCaptureSessionId": cookies.get("JobseekerSessionId"),
         "solId": job_data.get("searchParams", {}).get("solid"),
-        "hadPremiumListings": job_data.get("paginationParameters", {}).get(
-            "hadPremiumListings", True
-        ),
-        "include": job_data.get("searchParams", {}).get("include", "seodata"),
+        "hadPremiumListings": job_data.get("paginationParameters", {}).get("hadPremiumListings", True),
+        "include": job_data.get("searchParams", {}).get('include', 'seodata'),
     }
 
-
-from typing import Optional
 
 # Pydantic model for data validation
 from pydantic import BaseModel

@@ -10,7 +10,7 @@ from scripts.transformation import extract_transform
 default_args = {
     "owner": "airflow",
     "depends_on_past": False,
-    "email": ["your.email@example.com"],  # Replace with your email
+    "email": ["eduardo.hammes@gmail.com"],  # Replace with your email
     "email_on_failure": True,
     "email_on_retry": False,
     "retries": 1,

@@ -1,3 +1,6 @@
+# scripts/loading.py
+
+import logging
 from typing import List
 
 from airflow.decorators import task
@@ -8,7 +11,7 @@ from scripts.models import DB_CONFIG, LOGGER
 
 @task
 def load_data(all_jobs: List[dict]):
-    pg_hook = PostgresHook(postgres_conn_id=DB_CONFIG["connection_id"])
+    pg_hook = PostgresHook(postgres_conn_id=DB_CONFIG['connection_id'])
 
     create_table_sql = """
     CREATE TABLE IF NOT EXISTS job_data (
@@ -43,12 +46,10 @@ def load_data(all_jobs: List[dict]):
         sub_classification, is_premium, is_standout, job_location_label,
         job_advertiser_id, request_token
     ) VALUES (
-        %(job_id)s, %(job_title)s, %(company)s, %(company_logo_url)s,
-        %(location)s, %(area)s, %(suburb)s, %(work_type)s,
-        %(work_arrangement)s, %(salary)s, %(listing_date)s, %(teaser)s,
-        %(classification)s, %(sub_classification)s, %(is_premium)s,
-        %(is_standout)s, %(job_location_label)s, %(job_advertiser_id)s,
-        %(request_token)s
+        %(job_id)s, %(job_title)s, %(company)s, %(company_logo_url)s, %(location)s, %(area)s, %(suburb)s,
+        %(work_type)s, %(work_arrangement)s, %(salary)s, %(listing_date)s, %(teaser)s, %(classification)s,
+        %(sub_classification)s, %(is_premium)s, %(is_standout)s, %(job_location_label)s,
+        %(job_advertiser_id)s, %(request_token)s
     )
     ON CONFLICT (job_id)
     DO UPDATE SET
