@@ -9,3 +9,4 @@ black
 isort
 flake8
 bandit
+invoke
